@@ -3,12 +3,16 @@ require('dotenv').config()
 const express = require('express')
 const app = express()
 
+// Create jsx view engine
+app.set('view engine', 'jsx')
+app.engine('jsx', require('express-react-views').createEngine())
+
 // Import places route
 app.use('/places', require('./controllers/places'))
 
-// Main page route
+// Home page route
 app.get('/', (req, res) => {
-    res.send('Hello World!')
+    res.render('home')
 })
 
 // Error page route
