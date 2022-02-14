@@ -13,5 +13,5 @@ function home () {
     )
 }
 
-// Export home
+// Export home view
 module.exports = home
