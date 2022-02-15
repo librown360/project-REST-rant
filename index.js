@@ -3,9 +3,10 @@ require('dotenv').config()
 const express = require('express')
 const app = express()
 
-// Create jsx view engine
+// Middleware
 app.set('view engine', 'jsx')
 app.engine('jsx', require('express-react-views').createEngine())
+app.use(express.static('public'))
 
 // Import places route
 app.use('/places', require('./controllers/places'))
