@@ -9,6 +9,13 @@ function error404 () {
             <main>
                 <h1>404: Page not found</h1>
                 <p>Hmmmm, looks like something went wrong. So sorry!</p>
+                <div>
+                    <img src='/images/404_Error.png' alt='404 Error' />
+                    <div>
+                        Photo by <a href='https://www.pngitem.com/middle/iombmRT_404-error-images-free-png-transparent-png/'>PNGItem</a>
+                        <strong> Contributor: </strong> Christiane Nowottny
+                    </div>
+                </div>
             </main>
         </Def>
     )
