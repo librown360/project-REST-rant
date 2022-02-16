@@ -6,7 +6,7 @@ router.get('/new', (req, res) => {
   res.render('places/new')
 })
 
-// Post new place stub route @@@@@@@@@@@@ NEED TO LOOK INTO THIS @@@@@@@@@@@@@@
+// Post new place stub route
 router.post('/', (req, res) => {
   console.log(req.body)
   res.send('POST /places')
