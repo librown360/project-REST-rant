@@ -1,6 +1,11 @@
 // Express router
 const router = require('express').Router()
 
+// Add a New Place route
+router.get('/new', (req, res) => {
+  res.render('places/new')
+})
+
 // Places route
 router.get('/', (req, res) => {
     let places = [{
