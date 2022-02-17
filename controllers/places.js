@@ -1,5 +1,6 @@
 // Express router
 const router = require('express').Router()
+const places = require('../models/places.js')
 
 // Add a New Place route
 router.get('/new', (req, res) => {
@@ -9,33 +10,23 @@ router.get('/new', (req, res) => {
 // Post new place stub route
 router.post('/', (req, res) => {
   console.log(req.body)
-  res.send('POST /places')
+  if (!req.body.pic) {
+    // Default image if one is not provided
+    req.body.pic = 'http://placekitten.com/400/400'
+  }
+  if (!req.body.city) {
+    req.body.city = 'Anytown'
+  }
+  if (!req.body.state) {
+    req.body.state = 'USA'
+  }
+  places.push(req.body)
+  res.redirect('/places')
 })
 
-// Places route
+// GET /places
 router.get('/', (req, res) => {
-    let places = [{
-        name: 'Vegan Delight',
-        city: 'Seattle',
-        state: 'WA',
-        cuisines: 'Thai',
-        pic: '/images/Vegan_Delight.jpg',
-        credit: {
-          url: 'https://unsplash.com/@annapelzer',
-          source: 'Anna Pelzer'
-        }
-      }, {
-        name: 'The Spicy Spot',
-        city: 'Charlotte',
-        state: 'NC',
-        cuisines: 'Indian',
-        pic: '/images/Spicy_Spot.jpg',
-        credit: {
-          url: 'https://unsplash.com/@foodfaithfit?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText',
-          source: 'Taylor Kiser'
-        }
-      }]
-    res.render('places/index', {places})
+  res.render('places/index', {places})
 })
 
 // Export router
