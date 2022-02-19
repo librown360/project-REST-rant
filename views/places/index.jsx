@@ -19,10 +19,10 @@ function index (data) {
                     {place.cuisines}
                 </p>
                 <img src={place.pic} alt={place.name}></img>
-                <p>
+                {/* <p>
                     Photo by <a href={place.credit.url}>{place.credit.source}</a> on 
                     <a href='https://unsplash.com/images/food?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'> Unsplash</a>
-                </p>
+                </p> */}
             </div>
         )
     })
