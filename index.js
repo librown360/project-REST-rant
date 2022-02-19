@@ -1,5 +1,7 @@
 // Configuration
 require('dotenv').config()
+
+// Dependencies
 const express = require('express')
 const methodOverride = require('method-override')
 const app = express()
@@ -12,13 +14,13 @@ app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 
-// Import places route
-app.use('/places', require('./controllers/places'))
-
 // Home page route
 app.get('/', (req, res) => {
     res.render('home')
 })
+
+// Import places route
+app.use('/places', require('./controllers/places'))
 
 // Error page route
 app.get('*', (req, res) => {
