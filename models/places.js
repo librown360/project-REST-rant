@@ -8,7 +8,7 @@ module.exports = [{
     pic: '/images/Vegan_Delight.jpg',
     credit: {
         url: 'https://unsplash.com/@annapelzer',
-        source: 'Anna Pelzer'
+        source: 'Anna Pelzer',
     }
 }, {
     name: 'The Spicy Spot',
@@ -18,6 +18,6 @@ module.exports = [{
     pic: '/images/Spicy_Spot.jpg',
     credit: {
         url: 'https://unsplash.com/@foodfaithfit?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText',
-        source: 'Taylor Kiser'
+        source: 'Taylor Kiser',
     }
 }]

@@ -8,7 +8,7 @@ function index (data) {
         return (
             <div className='col-sm-6'>
                 <h2>
-                    <a href='{`/places/${index}`}' >
+                    <a href={`/places/${index}`} >
                     {place.name}
                     </a>
                 </h2>
@@ -20,7 +20,7 @@ function index (data) {
                 </p>
                 <img src={place.pic} alt={place.name}></img>
                 <p>
-                    Photo by <a href={place.credit.source}>{place.credit.source}</a> on 
+                    Photo by <a href={place.credit.url}>{place.credit.source}</a> on 
                     <a href='https://unsplash.com/images/food?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'> Unsplash</a>
                 </p>
             </div>
