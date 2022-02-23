@@ -1,23 +1,25 @@
+// Dependency
+const mongoose = require('mongoose')
 
-// Temporary data
-module.exports = [{
-    name: 'Vegan Delight',
-    city: 'Seattle',
-    state: 'WA',
-    cuisines: 'Thai',
-    pic: '/images/Vegan_Delight.jpg',
-    credit: {
-        url: 'https://unsplash.com/@annapelzer',
-        source: 'Anna Pelzer',
-    }
-}, {
-    name: 'The Spicy Spot',
-    city: 'Charlotte',
-    state: 'NC',
-    cuisines: 'Indian',
-    pic: '/images/Spicy_Spot.jpg',
-    credit: {
-        url: 'https://unsplash.com/@foodfaithfit?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText',
-        source: 'Taylor Kiser',
-    }
-}]
+// Place Schema
+const placeSchema = new mongoose.Schema({
+  name: { 
+    type: String, 
+    required: true 
+  },
+  pic: String,
+  cuisines: { 
+    type: String, 
+    required: true 
+  },
+  city: { 
+    type: String, 
+    default: 'Anytown' },
+  state: { 
+    type: String, 
+    default: 'USA' },
+  founded: Number
+})
+
+// Export the model
+module.exports = mongoose.model('Place', placeSchema)
