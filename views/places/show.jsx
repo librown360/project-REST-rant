@@ -2,6 +2,23 @@ const React = require('react')
 const Def = require('../default')
 
 function show (data) {
+  let comments = (
+    <h4 className='inactive'>
+      No comments
+    </h4>
+  )
+  if (data.place.comments.length) {
+    comments = data.place.comments.map(c => {
+      return (
+        <div className='border'>
+          <h2 className='rant'>{c.rant ? 'Rant! 😡' : 'Rave! 😻'}</h2>
+          <h4>{c.content}</h4>
+          <h3><strong>- {c.author}</strong></h3>
+          <h4>Rating: {c.stars}</h4>
+        </div>
+      )
+    })
+  }
     return (
         <Def>
           <main>
@@ -37,7 +54,7 @@ function show (data) {
               <div className='row border-top m-1'>
                 <div className='col'>
                   <h2>Comments</h2>
-                  <h4>No comments</h4>
+                  {comments}
                 </div>
               </div>
             </div>
