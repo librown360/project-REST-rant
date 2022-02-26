@@ -8,7 +8,7 @@ function error404 () {
         <Def>
             <main>
                 <h1>404: Page not found</h1>
-                <p>Hmmmm, looks like something went wrong. So sorry!</p>
+                <p>Hmmmm, looks like something went wrong. So sorry! Please try again.</p>
                 <div>
                     <img src='/images/404_Error.png' alt='404 Error' />
                     <div>
