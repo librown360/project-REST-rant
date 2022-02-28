@@ -1,6 +1,8 @@
+// Dependencies
 const React = require('react')
 const Def = require('../default')
 
+// Form to add a new place
 function new_form () {
     return (
         <Def>
@@ -33,7 +35,7 @@ function new_form () {
                     <div className='form-group col-md-4'>
                         <label htmlFor='founded'>Founded Year</label>
                         <input 
-                        type="number"
+                        type='number'
                         className='form-control' id='founded' name='founded'
                         value={new Date().getFullYear()} />
                     </div>

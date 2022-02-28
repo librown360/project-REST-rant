@@ -17,10 +17,10 @@ const placeSchema = new mongoose.Schema({
   },
   city: { 
     type: String, 
-    default: 'Anytown' },
+    default: 'Charlotte' },
   state: { 
     type: String, 
-    default: 'USA' },
+    default: 'NC' },
   founded: {
       type: Number,
       min: [1673, 'Surely not that old?!'],

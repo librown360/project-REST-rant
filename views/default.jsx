@@ -1,4 +1,4 @@
-// Import React
+// Dependency
 const React = require('react')
 
 // Default HTML function
