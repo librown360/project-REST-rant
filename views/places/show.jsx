@@ -46,10 +46,10 @@ function show (data) {
             </div>
             <div className='row gy-2 gx-4 m-1'>
               <div className='col-2 gx-1'>
-                <a href={`/places/${data.id}/edit`} className='btn btn-warning'>Edit</a>
+                <a href={`/places/${data.place.id}/edit`} className='btn btn-warning'>Edit</a>
               </div>
               <div className='col-2 gx-1'>
-                <form action={`/places/${data.id}?_method=DELETE`} method='POST'>
+                <form action={`/places/${data.place.id}?_method=DELETE`} method='POST'>
                   <input type='submit' className='btn btn-danger' value='Delete' />
                 </form>
               </div>
@@ -60,8 +60,8 @@ function show (data) {
                 {comments}
               </div>
             </div>
-            {/* Display the add comment form */}
-            <Com></Com>
+            {/* Display the add comment form and pass it the data for the associated place */}
+            <Com id={data.place.id}> </Com>
           </div>
         </main>
       </Def>

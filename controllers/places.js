@@ -62,18 +62,20 @@ router.get('/:id/edit', (req, res) => {
 // POST a Comment
 router.post('/:id/comment', (req, res) => {
   console.log(req.body)
+  console.log(req.params.id)
+  // Set rant value to true or false
+  req.body.rant = req.body.rant ? true : false
+  // Find the place to be updated
   db.Place.findById(req.params.id)
   .then(place => {
-    // Set rant value to true or false
-    req.body.rant = req.body.rant ? true : false
     // Create and save comment to database
     db.Comment.create(req.body)
     .then(comment => {
       place.comments.push(comment.id)
       place.save()
       // Redirect to place show page
-      .then(place => {
-        res.redirect('places/show', { place })
+      .then(() => {
+        res.redirect(`/places/${req.params.id}`)
       })
     })
     .catch(err => {
