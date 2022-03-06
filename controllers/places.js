@@ -46,23 +46,41 @@ router.get('/:id', (req, res) => {
 
 // PUT a Place STUB
 router.put('/:id', (req, res) => {
-  res.send('PUT /places/:id stub')
+  db.Place.findByIdAndUpdate(req.params.id, req.body)
+  .then(() => {
+    res.redirect(`/places/${req.params.id}`)
+  })
+  .catch(err => {
+    console.log('err', err)
+    res.render('error404')
+  })
 })
 
-// DELETE a Place STUB
+// DELETE a Place
 router.delete('/:id', (req, res) => {
-  res.send('DELETE /places/:id stub')
+  db.Place.findByIdAndDelete(req.params.id)
+  .then(place => {
+    res.redirect('/places')
+  })
+  .catch(err => {
+    console.log('err', err)
+    res.render('error404')
+  })
 })
 
-// EDIT a Place STUB
+// EDIT a Place
 router.get('/:id/edit', (req, res) => {
-  res.send('GET edit form stub')
+  db.Place.findById(req.params.id)
+  .then(place => {
+    res.render('places/edit', { place })
+  })
+  .catch(err => {
+    res.render('error404')
+  })
 })
 
 // POST a Comment
 router.post('/:id/comment', (req, res) => {
-  console.log(req.body)
-  console.log(req.params.id)
   // Set rant value to true or false
   req.body.rant = req.body.rant ? true : false
   // Find the place to be updated
@@ -89,9 +107,28 @@ router.post('/:id/comment', (req, res) => {
   })
 })
 
-// DELETE a Comment STUB
+// DELETE a Comment
 router.delete('/:id/comment/:commentId', (req, res) => {
-    res.send('GET /places/:id/comment/:commentId stub')
+  // res.send('This is the Delete Comment Stub')
+  db.Place.findById(req.params.id)
+  .then(place => {
+    db.Comment.findByIdAndDelete(place.comments = req.params.commentId)
+    .then(comment => {
+      res.redirect(`/places/${req.params.id}`)
+    })
+    // console.log(comment)
+    // db.Comment.findByIdAndDelete(place.comments.ObjectId)
+  // .then(comment => {
+  //   const index = place.comments.indexOf(comment)
+  //   place.comments.splice(index, 1)
+  //   console.log(comment)
+  //     place.comment.id(comment).remove()
+  //     place.save()
+  //     .then(() => {
+  //       res.redirect(`/places/${req.params.id}`)
+  //     })
+  //   })
+  })
 })
 
 // Export router

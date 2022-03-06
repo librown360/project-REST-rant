@@ -3,7 +3,7 @@ const React = require('react')
 const Def = require('../default')
 const Com = require('./comments')
 
-// Show place details and comments if they exist
+// Show place details and comments if they exist along with the rating
 function show (data) {
   let comments = (
     <h4 className='inactive'>
@@ -31,11 +31,14 @@ function show (data) {
     )
     comments = data.place.comments.map(c => {
       return (
-        <div className='border'>
+        <div className='border col-sm-4'>
           <h2 className='rant'>{c.rant ? 'Rant! 😡' : 'Rave! 😻'}</h2>
           <h4>{c.content}</h4>
           <h3><strong>- {c.author}</strong></h3>
           <h4>Rating: {c.stars}</h4>
+          <form method='POST' action={`/places/${data.place.id}/comment/${c.id}?_method=DELETE`}>
+            <input type='submit' className='btn btn-danger' value='Delete Comment' />
+        </form>
         </div>
       )
     })
@@ -67,13 +70,13 @@ function show (data) {
                 <a href={`/places/${data.place.id}/edit`} className='btn btn-warning'>Edit</a>
               </div>
               <div className='col-2 gx-1'>
-                <form action={`/places/${data.place.id}?_method=DELETE`} method='POST'>
+                <form  method='POST' action={`/places/${data.place.id}?_method=DELETE`}>
                   <input type='submit' className='btn btn-danger' value='Delete' />
                 </form>
               </div>
             </div>
-            <div className='row border-top m-1'>
-              <div className='col'>
+            <div className='col border-top m-1'>
+              <div className='row'>
                 <h2>Comments</h2>
                 {comments}
               </div>
