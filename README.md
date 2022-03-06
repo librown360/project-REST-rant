@@ -13,10 +13,10 @@ REST-Rant is an app where users can review restaurants.
 | POST | /places | Create a new place |
 | GET | /places/:id | Show page containing details for a specific place (including a comment form to post rants) |
 | GET | /places/:id/edit | Edit form for a place |
-| PUT | /places/:id | Make changes to an existing place |
+| PUT | /places/:id | Update changes to an existing place |
 | DELETE | /places/:id | Delete an existing place |
-| POST | /places/:id/comment | Post a rant (comment) about a specific place |
-| DELETE | /places/:id/comment/:id | Delete an existing rant (comment) |
+| POST | /places/:id/comment | Post a comment about a specific place |
+| DELETE | /places/:id/comment/:id | Delete an existing comment |
 
 ## Places Data
 
@@ -27,4 +27,13 @@ REST-Rant is an app where users can review restaurants.
 | state | string |
 | cuisines | string |
 | pic | string |
+| comments | document reference |
 
+## Comments Data
+
+|  Variable | Data Type |
+| --- | --- |
+| author | string |
+| rant | boolean |
+| stars | number |
+| content | string |
