@@ -34,7 +34,7 @@ function show (data) {
         <div className='border col-sm-4'>
           <h2 className='rant'>{c.rant ? 'Rant! 😡' : 'Rave! 😻'}</h2>
           <h4>{c.content}</h4>
-          <h4><strong>- {c.author}</strong></h4>
+          <h4><strong>- {c.author ? 'c.author' : 'Anonymous'}</strong></h4>
           <h4>Rating: {c.stars}</h4>
           <form method='POST' action={`/places/${data.place.id}/comment/${c.id}?_method=DELETE`}>
             <input type='submit' className='btn btn-danger' value='Delete' />
