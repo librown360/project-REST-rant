@@ -109,25 +109,12 @@ router.post('/:id/comment', (req, res) => {
 
 // DELETE a Comment
 router.delete('/:id/comment/:commentId', (req, res) => {
-  // res.send('This is the Delete Comment Stub')
   db.Place.findById(req.params.id)
   .then(place => {
     db.Comment.findByIdAndDelete(place.comments = req.params.commentId)
     .then(comment => {
       res.redirect(`/places/${req.params.id}`)
     })
-    // console.log(comment)
-    // db.Comment.findByIdAndDelete(place.comments.ObjectId)
-  // .then(comment => {
-  //   const index = place.comments.indexOf(comment)
-  //   place.comments.splice(index, 1)
-  //   console.log(comment)
-  //     place.comment.id(comment).remove()
-  //     place.save()
-  //     .then(() => {
-  //       res.redirect(`/places/${req.params.id}`)
-  //     })
-  //   })
   })
 })
 
